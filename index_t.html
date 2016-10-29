@@ -43,13 +43,13 @@
     }
     
     /* On small screens, set height to 'auto' for sidenav and grid */
-    /*@media screen and (max-width: 767px) {
-        .sidenav {
+    @media screen and (max-width: 767px) {
+        /*.sidenav {
         height: auto;
         padding: 15px;
-      }
+      }*/
       .row.content {height:auto;}
-    }*/
+    }
   </style>
 </head>
 <body>
@@ -73,9 +73,9 @@
   </div>
 </nav>
   
-<div class="container-fluid text-left">
+<div class="container-fluid text-center">
   <div class="row content">
-    <div class="col-sm-12 form">
+    <div class="col-sm-10 form">
       <form method="POST" name="email_form_with_php"
       action="php-form-action.php" enctype="multipart/form-data"> 
 
@@ -96,9 +96,9 @@
       <br>       
       <!- May need to change location of this label ->
       <label for='location'>Where did you see the pothole?</label>
-      //do we need an input type thingie here?
+      <!- do we need an input type thingie here? ->
         
-        <div id='mapDiv'>
+        <div class="text-center" id='mapDiv'>
         </div>
         
       <input type="submit" value="Submit" name='submit'>
