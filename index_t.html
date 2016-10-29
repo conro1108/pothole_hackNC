@@ -25,8 +25,8 @@
       border-radius: 0;
     }
     
-    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-    .row.content {height: 450px}
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed)
+    .row.content {height: 450px}*/
     
     /* Set gray background color and 100% height
     .sidenav {
@@ -73,7 +73,7 @@
   </div>
 </nav>
   
-<div class="container-fluid text-center">
+<div class="container-fluid text-left">
   <div class="row content">
     <div class="col-sm-1 form">
       <form method="POST" name="email_form_with_php"
@@ -81,74 +81,24 @@
 
       <label for='name'>*Name: </label>
       <input type="text" name="name" >
-
+      <br>
       <label for='email'>Email: </label>
       <input type="text" name="email" >
-
+      <br>
       <label for='date'>*When did you see the pothole?</label>
-        <!--<select name="Month">
-          <option> - Month - </option>
-          <option value="January">January</option>
-          <option value="Febuary">Febuary</option>
-          <option value="March">March</option>
-          <option value="April">April</option>
-          <option value="May">May</option>
-          <option value="June">June</option>
-          <option value="July">July</option>
-          <option value="August">August</option>
-          <option value="September">September</option>
-          <option value="October">October</option>
-          <option value="November">November</option>
-          <option value="December">December</option>
-        </select>
-
-        <select name="Day">
-          <option> - Day - </option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-          <option value="7">7</option>
-          <option value="8">8</option>
-          <option value="9">9</option>
-          <option value="10">10</option>
-          <option value="11">11</option>
-          <option value="12">12</option>
-          <option value="13">13</option>
-          <option value="14">14</option>
-          <option value="15">15</option>
-          <option value="16">16</option>
-          <option value="17">17</option>
-          <option value="18">18</option>
-          <option value="19">19</option>
-          <option value="20">20</option>
-          <option value="21">21</option>
-          <option value="22">22</option>
-          <option value="23">23</option>
-          <option value="24">24</option>
-          <option value="25">25</option>
-          <option value="26">26</option>
-          <option value="27">27</option>
-          <option value="28">28</option>
-          <option value="29">29</option>
-          <option value="30">30</option>
-          <option value="31">31</option>
-        </select> -->
       <input type="date" name="date">
-
+      <br>
       <!- We need to decide on month/year dropdowns or the calendar selection. 
         I like the calendar date selection, it looks really good on mobile ->
 
       <label for='uploaded_file'>Select a pothole photo to upload:</label>
       <input type="file" name="uploaded_file">
-        
+      <br>       
       <!- May need to change location of this label ->
       <label for='location'>Where did you see the pothole?</label>
       //do we need an input type thingie here?
         
-        <div class="col-sm-1 text-left" id='mapDiv'>
+        <div id='mapDiv'>
         </div>
         
       <input type="submit" value="Submit" name='submit'>
