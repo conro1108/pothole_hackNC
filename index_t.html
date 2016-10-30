@@ -5,6 +5,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+  <link href='custom.css' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
 
   <!-- Step 1. Add CSS for the mapping components -->
     <link rel="stylesheet" type="text/css" href="//js.arcgis.com/3.13/esri/css/esri.css">   
@@ -52,6 +55,7 @@
     }
   </style>
 </head>
+  
 <body>
 
 <nav class="navbar navbar-inverse">
@@ -67,50 +71,86 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">Submit Your Pothole</a></li>
-        <li><a href="./About.md">About</a></li>
       </ul>
     </div>
   </div>
 </nav>
   
-<div class="container-fluid text-left">
-  <div class="row content">
-    <div class="col-sm-10 form">
-      <form method="POST" name="email_form_with_php"
-      action="php-form-action.php" action="mailto:asphalticpatch@gmail.com" enctype="multipart/form-data"> 
-
-      <label for='name'>*Name: </label>
-      <input type="text" name="name" >
-      <br>
-      <label for='email'>Email: </label>
-      <input type="text" name="email" >
-      <br>
-      <label for='date'>*When did you see the pothole?</label>
-      <input type="date" name="date">
-      <br>
-      <!- We need to decide on month/year dropdowns or the calendar selection. 
-        I like the calendar date selection, it looks really good on mobile ->
-
-      <label for='uploaded_file'>Select a pothole photo to upload:</label>
-      <input type="file" name="uploaded_file">
-      <br>       
-      <!- May need to change location of this label ->
-      <label for='location'>Where did you see the pothole?</label>
-      <!- do we need an input type thingie here? ->
-        
-        <div class="text-center" id='mapDiv'>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 form">
+      
+      <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <h1>Trashphalt Reporter</h1>
+                    <p class="lead">Report potholes on Chapel Hill roads using this form.</p>
+      
+      <form id="contact-form" method="post" action="contact.php" role="form">
+        <div class="messages"></div>
+        <div class="controls">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="form_name">Name *</label>
+                    <input id="form_name" type="text" name="name" class="form-control" placeholder="Please enter your name *" required="required" data-error="Name is required.">
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="form_lastname">Email</label>
+                    <input id="form_lastname" type="text" name="surname" class="form-control" placeholder="Please enter your email">
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
         </div>
-        
-      <input type="submit" value="Submit" name='submit'>
-      </form>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="form_phone">When did you see the pothole? *</label>
+                    <input id="form_date" type="date" name="date" class="form-control" placeholder="MM/DD/YY *" required="required" data-error="Date is required.">
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                    <label for="form_location">The pothole was...</label>
+                    <input id="form_check1" type="checkbox" name="check1" value="travellane">In the travel lane&nbsp;<input id="form_check2" type="checkbox" name="check2" value="shoulder">In the shoulder&nbsp;<input id="form_check3" type="checkbox" name="check3" value="damage">Bad enough to damage vehicles
+              </div>
+            </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="form_location">Where was the pothole? *</label>
+                    <!- get data somehow ->
+                    <div class="text-center" id='mapDiv'>
+                  </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <input type="submit" class="btn btn-success btn-send" value="Submit form">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <p class="text-muted"><strong>*</strong> These fields are required. Contact form template by <a href="http://bootstrapious.com" target="_blank">Bootstrapious</a>.</p>
+            </div>
+        </div>
     </div>
   </div>
-</div>
+</form>
+
  
+
+
+    
 <footer class="container-fluid text-center">
-  <p>Created by [[OURNAMES]] for HackNC Fall 2016</p>
+  <p>Created by Team Trasphalt for HackNC Fall 2016</p>
 </footer>
 
+
+                  
+                  
  <!-- Step 3. Add JS to load the responsive map -->
     <script type="text/javascript">
         var package_path = "//esri.github.com/bootstrap-map-js/src/js";
